@@ -16,4 +16,4 @@ public class IntToBin {
         if (x == 0) return ""; 
         String bin = (x % 2 == 1) ? "1" : "0";
         return toBinaryHelper(x / 2) + bin;
-}
+}}
