@@ -3,26 +3,30 @@ public class Binomial {
     public static void main(String[] args) {
 		//// Uncomment the version of binomial that you want to test
  
-		// Testing the basic binomial implementation:
-    	// System.out.println(binomial1(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
+		//  Testing the basic binomial implementation:
+    	//  System.out.println(binomial1(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
 
 		// Testing the optimized binomial implementation:
-		// System.out.println(binomial(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
+		 System.out.println(binomial(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
 	}
 
 	// Computes the Binomial function, basic version.
 	public static int binomial1(int n, int k) { 
-		//// Repplace the following comment with your code
-		return 0;
+		if (k > n) return 0;
+		if (k == 0 || n == 0) return 1;
+		return binomial1(n - 1, k) + binomial1(n - 1, k - 1);
 	 }
 	
 	// Computes the Binomial function, efficiently
 	public static int binomial(int n, int k) {
-		//// This function creates a 2D array, say memo, 
-		//// and then initializes all its elements to -1.
-		//// It then calls binomial(n, k, memo), which does all the heavy lifiting.
-		//// Replace the following statement with your code.
-		return 0;
+		int[][] binArr = new int[n+1][k+1];
+		for(int i = 0; i < binArr.length; i++){
+			for(int j = 0; j < binArr[0].length; j++){
+				binArr[i][j] = -1;
+			}
+		} 
+		return binomial(n, k, binArr);
+
 	}
 
 	private static int binomial(int n, int k, int[][] memo) {
